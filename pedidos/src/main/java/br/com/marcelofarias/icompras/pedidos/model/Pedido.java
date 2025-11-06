@@ -1,5 +1,6 @@
 package br.com.marcelofarias.icompras.pedidos.model;
 
+import br.com.marcelofarias.icompras.pedidos.client.representation.ClienteRepresentation;
 import br.com.marcelofarias.icompras.pedidos.model.enums.StatusPedido;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -52,4 +53,7 @@ public class Pedido {
 
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
+
+    @Transient
+    private ClienteRepresentation dadosCliente;
 }
